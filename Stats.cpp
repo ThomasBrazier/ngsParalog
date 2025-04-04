@@ -232,7 +232,7 @@ double Stats::minor02 (double m, double err)
 }
 // end minor read probability functions
 
-double Stats::genoPrior (const double f, const int g2)
+double Stats::genoPrior (const double f, const int g2, const double fis)
 {
 	//calculates P(G1,G2|f)
 
@@ -240,13 +240,13 @@ double Stats::genoPrior (const double f, const int g2)
 	switch (g2)
 	{
 		case 0 :
-			p = (1.0-f)*(1.0-f);
+			p = (1.0-f)*(1.0-f)+fis*f*(1.0-f);
 			break;
 		case 1 :
-			p = 2*f*(1.0-f);
+			p = 2*f*(1.0-f)*(1.0-fis);
 			break;
 		case 2 :
-			p = f*f;
+			p = f*f+fis*f*(1.0-f);
 			break;
 		default:
 			throw AssertStyleException((ExceptionFormatter() << "g2 value of " << g2 << " not allowed in call to Stats::" << __func__ << "()").str().c_str());
