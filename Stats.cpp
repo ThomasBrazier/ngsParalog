@@ -8,6 +8,8 @@
 #include <math.h>
 #include <sys/stat.h>
 #include <time.h>
+#include "generalUtils.h"
+#include "Argparser.h"
 #include "parsePileup.h"
 #include "Stats.h"
 #include "bfgs.h"
@@ -132,9 +134,11 @@ double Stats::negLogfn (const double para [], const void *generic_dat)
 	char minor = pile->minorid();
 
 	// assume major allele comes from G1, minor allele from G2
-	genoprior[0] = genoPrior(p[findex], 0); // P(G1 = 0, G2 = 0|f)
-	genoprior[1] = genoPrior(p[findex], 1);  // P(G1 = 0, G2 = 1|f)
-	genoprior[2] = genoPrior(p[findex], 2); // P(G1 = 0, G2 = 2|f)
+	const Argparser* args;
+
+	genoprior[0] = genoPrior(p[findex], 0, args->fis()); // P(G1 = 0, G2 = 0|f)
+	genoprior[1] = genoPrior(p[findex], 1, args->fis());  // P(G1 = 0, G2 = 1|f)
+	genoprior[2] = genoPrior(p[findex], 2, args->fis()); // P(G1 = 0, G2 = 2|f)
 	static std::vector<SiteData>::const_iterator ind_iter;
 	static std::vector<seqread>::const_iterator readIter;
 
@@ -232,7 +236,7 @@ double Stats::minor02 (double m, double err)
 }
 // end minor read probability functions
 
-double Stats::genoPrior (const double f, const int g2, const double fis)
+double Stats::genoPrior (const double f, const int g2, double fis)
 {
 	//calculates P(G1,G2|f)
 

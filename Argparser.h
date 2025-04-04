@@ -24,6 +24,7 @@ public:
         double offsetQ () const; /* return _Qoffset */
         unsigned int minind () const; /* return minind */
         unsigned int mincov () const; /* return _mincov */
+        double fis () const; /* return Fis */
 	int runinfo () const; /* return _runinfo */
         std::string infile_name () const; /* returns _infile */
         std::string outfile_name () const; /* returns _outfile */
@@ -49,6 +50,7 @@ private:
         double _Qoffset; /* min possible ASCII decimal value used to encode quality scores */
         int _minind; /* min number of covered individuals */
         int _mincov; /* min number of reads for an individual to be considered "covered" */
+        int _fis; /* Fis value */
 	int _runinfo; /* controls what messages are printed for users*/
         int _printml; /* controls what parameter ML estimates are outputted */
         int _numericGrad; /* 1 - use numeric gradient, 0 - use analytic gradient */
