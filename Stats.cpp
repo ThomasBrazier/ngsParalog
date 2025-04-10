@@ -247,7 +247,7 @@ double Stats::genoPrior (const double f, const int g2, double fis)
 			p = (1.0-f)*(1.0-f)+fis*f*(1.0-f);
 			break;
 		case 1 :
-			p = 2*f*(1.0-f)*(1.0-fis);
+			p = 2.0*f*(1.0-f)*(1.0-fis);
 			break;
 		case 2 :
 			p = f*f+fis*f*(1.0-f);
