@@ -134,7 +134,8 @@ double Stats::negLogfn (const double para [], const void *generic_dat)
 	char minor = pile->minorid();
 
 	// assume major allele comes from G1, minor allele from G2
-	const Argparser* args;
+	// const Argparser* args;
+	const Argparser* args = static_cast<const Argparser*>(optdata->data);
 
 	genoprior[0] = genoPrior(p[findex], 0, args->fis()); // P(G1 = 0, G2 = 0|f)
 	genoprior[1] = genoPrior(p[findex], 1, args->fis());  // P(G1 = 0, G2 = 1|f)
