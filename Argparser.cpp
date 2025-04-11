@@ -356,7 +356,7 @@ void Argparser::calcLRinfo ()
 	<< "\n" << std::setw(w) << std::left << "-minQ" << std::setw(w) << "<float>" << "Minimum base quality score [" << _minQ << "]"
 	<< "\n" << std::setw(w) << std::left << "-minind" << std::setw(w) << "<int>" << "Minimum number of covered individuals to retain site [" << _minind << "]"
 	<< "\n" << std::setw(w) << std::left << "-mincov" << std::setw(w) << "<int>" << "Minimum number of reads for an individual to be considered 'covered' [" << _mincov << "]"
-	<< "\n" << std::setw(w) << std::left << "-fis" << std::setw(w) << "<float>" << "Fis value [" << _mincov << "]"
+	<< "\n" << std::setw(w) << std::left << "-fis" << std::setw(w) << "<float>" << "Fis value [" << _fis << "]"
 	<< "\n" << std::setw(w) << std::left << "-runinfo" << std::setw(w) << "<int>" << "Controls verbosity. 0: suppress all messages, 1: warnings only, 2: print all run information. [" << _runinfo << "]"
 	<< "\n\nOutput by field:"
 	<< "\n(1) sequence ID"
